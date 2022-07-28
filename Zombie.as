@@ -9,11 +9,40 @@ import flash.events.Event;
 		private var speed:int;//移动速度
 		private var status:int;//定义僵尸的状态
 		private var zomTimer:Timer;
+		private var it;
 		//set and get
-		//定义僵尸的行为
+		public function setHp(myHp:int):void{
+			this.hp=myHp;
+		}
+		public function getHp():int{
+			return this.hp;
+		}
+		public function setStatus(sta:int){
+			this.status=sta;
+			
+		}
+		public function getStatus():int{
+			return this.status;
+		}
+		public function getIt():int{
+			return this.it;
+		}
+		public function setIt(myIt:int):void{
+			this.it=myIt;
+			
+		}
+		
+		
+		
+		//构造函数，定义僵尸的行为
 		public function Zombie() {
-		//初始化代码
-		init();
+			
+			//初始化代码
+			init();
+		}
+		
+		public function hit():void{
+			this.hp=this.hp-1;
 		}
 		public function attack():void{
 			
@@ -22,12 +51,13 @@ import flash.events.Event;
 		
 		}
 		public function goForward():void{
-			this.x=this.x-1;
-			if(this.x<-20)
-				destroy();
+			this.x=this.x-2;
+			
 		}
 		//僵尸的生命周期
 		public function init():void{
+			this.status=1;
+			this.hp=5;
 			zomTimer = new Timer(41);//定时器
 			zomTimer.start();
 			zomTimer.addEventListener(TimerEvent.TIMER,serves);

@@ -12,6 +12,7 @@ import flash.events.Event;
 		private var distance:int;//射击距离
 		private var end_x:int;//豌豆消失的位置
 		var pbTimer:Timer;
+		//构造函数
 		public function PB00() {
 			// 初始化植物设计参数
 			this.speed=1;
@@ -23,8 +24,11 @@ import flash.events.Event;
 			
 		}
 		//set and get
-		public function set(end:int):void{
+		public function setEnd_x(end:int):void{
 			this.end_x=end;
+		}
+		public function getEnd_x():int{
+			return this.end_x;
 		}
 		//定义的行为
 		public function attack():void{
@@ -34,12 +38,9 @@ import flash.events.Event;
 		
 		}
 		public function goForward():void{
-			if(this.x<this.end_x&&this.x<1000){
+			
 				this.x=this.x+4;
-			}
-			else{
-				destroy();
-			}
+			
 		}
 		//植物的生命周期
 		public function init():void{

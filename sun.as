@@ -39,9 +39,9 @@ import flash.events.MouseEvent;
 		
 		public function _move(){
 			if(ready){
-				if(this,x>0) this.x=this.x-5;
-				if(this.x>0) this.y=this.y-5;
-				if(this.x<=0&&this.y<=0){
+				if(this,x>-20) this.x=this.x-5;
+				if(this.y>-20) this.y=this.y-5;
+				if(this.x<=0||this.y<=0){
 					destroy();
 				}
 			}else{
